@@ -10,5 +10,5 @@ public class Weapon : Item
         public int damage;
         public double attackDelay;
     }
-    public WeaponStatus status;
+    public WeaponStatus weaponStatus;
 }

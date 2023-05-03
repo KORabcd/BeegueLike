@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
         public string type;
     }
 
-    private EnemyStatus status;
+    private EnemyStatus enemyStatus;
     // Start is called before the first frame update
     void Start()
     {
