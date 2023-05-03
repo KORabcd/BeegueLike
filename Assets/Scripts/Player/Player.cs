@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class Player : Entity
 {
     [System.Serializable]
     public struct PlayerStatus
     {
+        public Vector2 inputMovement;
         public float invincTime;
         public float invincDelay;
     }
@@ -15,22 +17,32 @@ public class Player : Entity
 
     private void Start()
     {
-        base.entityStatus.maxHealth = 10;
-        base.entityStatus.nowHealth = 8;
-        base.entityStatus.walkSpeed = 5;
-        base.entityStatus.canFly = true;
+
     }
 
     void Update()
     {
-
-        Move();
+        UpdateMovement();
+        transform.position += Time.deltaTime * (Vector3)base.entityStatus.currentMovement;
     }
-    void Move()
+
+    public void UpdateMovement()
     {
-        float h, v;
-        h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Vertical");
-        transform.position += new Vector3(h, v, 0);
+        float acceleration;
+        if (base.entityStatus.isFly) acceleration = base.entityStatus.flyAcceleration;
+        else acceleration = base.entityStatus.walkAcceleration;
+
+        float speedMax;
+        if (base.entityStatus.isFly) speedMax = base.entityStatus.flySpeedMax;
+        else speedMax = base.entityStatus.walkSpeedMax;
+
+        Vector2 inputMovement = playerStatus.inputMovement * speedMax;
+    Vector2 deltaMovement = inputMovement - base.entityStatus.currentMovement;
+        if (deltaMovement.magnitude > acceleration* Time.deltaTime) deltaMovement *= acceleration* Time.deltaTime / deltaMovement.magnitude;
+        base.entityStatus.currentMovement += deltaMovement;
+    }
+public void InputMovement(InputAction.CallbackContext context)
+    {
+        playerStatus.inputMovement = context.ReadValue<Vector2>();
     }
 }

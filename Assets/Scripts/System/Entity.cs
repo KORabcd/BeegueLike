@@ -10,8 +10,13 @@ public class Entity : MonoBehaviour
         public int maxHealth;
         public int nowHealth;
 
-        public float walkSpeed;
-        public float flySpeed;
+        public Vector2 currentMovement;
+
+        public float walkSpeedMax;
+        public float walkAcceleration;
+
+        public float flySpeedMax;
+        public float flyAcceleration;
 
         public bool canFly;
         public bool isFly;
