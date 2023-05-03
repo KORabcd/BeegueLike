@@ -15,6 +15,11 @@ public class Player : Entity
     [SerializeField]
     private PlayerStatus playerStatus;
 
+    Rigidbody2D rigid;
+    private void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+    }
     private void Start()
     {
 
