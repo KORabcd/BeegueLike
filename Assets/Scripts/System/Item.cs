@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public int id;
-    public string name;
-    public string description;
+    [System.Serializable]
+    public struct ItemStatus
+    {
+        public int id;
+        public string name;
+        public string description;
+    }
+    public ItemStatus status;
 }
