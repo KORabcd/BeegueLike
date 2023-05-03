@@ -257,6 +257,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849150bb7394cff49b793239bc0781fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityStatus:
+    nowHealth: 0
+    walkSpeed: 0
+    flySpeed: 0
+    canFly: 0
+    isFly: 0
+    isDead: 0
   playerStatus:
     invincTime: 1
     invincDelay: 1

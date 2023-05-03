@@ -14,11 +14,9 @@ public class Player : Entity
 
     [SerializeField]
     private PlayerStatus playerStatus;
-
-    Rigidbody2D rigid;
+    public Rigidbody2D rigid;
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
     }
     private void Start()
     {
@@ -28,7 +26,8 @@ public class Player : Entity
     void Update()
     {
         UpdateMovement();
-        transform.position += Time.deltaTime * (Vector3)base.entityStatus.currentMovement;
+        Vector2 movePosition = (Vector2)transform.position + Time.deltaTime * base.entityStatus.currentMovement;
+        rigid.MovePosition(movePosition);
     }
 
     public void UpdateMovement()
