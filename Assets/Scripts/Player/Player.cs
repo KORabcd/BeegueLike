@@ -15,6 +15,7 @@ public class Player : Entity
     [SerializeField]
     private PlayerStatus playerStatus;
     public Rigidbody2D rigid;
+    public SpriteRenderer sprite;
     private void Awake()
     {
     }
@@ -25,11 +26,18 @@ public class Player : Entity
 
     void Update()
     {
+
+    }
+    private void FixedUpdate()
+    {
         UpdateMovement();
         Vector2 movePosition = (Vector2)transform.position + Time.deltaTime * base.entityStatus.currentMovement;
         rigid.MovePosition(movePosition);
     }
-
+    private void LateUpdate()
+    {
+        PlayerFlip();
+    }
     public void UpdateMovement()
     {
         float acceleration;
@@ -41,12 +49,19 @@ public class Player : Entity
         else speedMax = base.entityStatus.walkSpeedMax;
 
         Vector2 inputMovement = playerStatus.inputMovement * speedMax;
-    Vector2 deltaMovement = inputMovement - base.entityStatus.currentMovement;
+        Vector2 deltaMovement = inputMovement - base.entityStatus.currentMovement;
         if (deltaMovement.magnitude > acceleration* Time.deltaTime) deltaMovement *= acceleration* Time.deltaTime / deltaMovement.magnitude;
         base.entityStatus.currentMovement += deltaMovement;
     }
-public void InputMovement(InputAction.CallbackContext context)
+    public void InputMovement(InputAction.CallbackContext context)
     {
         playerStatus.inputMovement = context.ReadValue<Vector2>();
+    }
+    void PlayerFlip()
+    {
+        if(playerStatus.inputMovement.x !=0)
+        {
+            sprite.flipX = playerStatus.inputMovement.x > 0;
+        }
     }
 }

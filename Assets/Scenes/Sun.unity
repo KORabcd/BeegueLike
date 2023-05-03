@@ -1221,6 +1221,7 @@ MonoBehaviour:
     invincTime: 0
     invincDelay: 0
   rigid: {fileID: 1673988806}
+  sprite: {fileID: 1673988808}
 --- !u!58 &1673988805
 CircleCollider2D:
   m_ObjectHideFlags: 0
