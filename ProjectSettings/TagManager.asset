@@ -14,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Physics Off
+  - Player
+  - Wall
+  - Room Object
+  - Room Border
   - 
   - 
   - 

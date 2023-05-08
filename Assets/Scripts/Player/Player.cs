@@ -71,5 +71,15 @@ public class Player : Entity
         }
     }
 
-    
+    public void DisablePhysics()
+    {
+        gameObject.layer = 6;
+    }
+
+    public void EnablePhysics()
+    {
+        gameObject.layer = 7;
+    }
+
+
 }

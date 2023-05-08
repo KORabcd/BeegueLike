@@ -1,5 +1,95 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &51389081656333443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548956735633006377}
+  - component: {fileID: 4594565642808336695}
+  - component: {fileID: 4306978517356862648}
+  m_Layer: 10
+  m_Name: Border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1548956735633006377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51389081656333443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5798767657174318757}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &4594565642808336695
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51389081656333443}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &4306978517356862648
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51389081656333443}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -5.19615, y: 9}
+      - {x: 5.19615, y: 9}
+      - {x: 10.3923, y: 0}
+      - {x: 5.19615, y: -9}
+      - {x: -5.19615, y: -9}
+      - {x: -10.3923, y: 0}
+    - - {x: -5.19037, y: 8.99}
+      - {x: 5.19037, y: 8.99}
+      - {x: 10.38075, y: 0}
+      - {x: 5.19037, y: -8.99}
+      - {x: -5.19037, y: -8.99}
+      - {x: -10.38075, y: 0}
 --- !u!1 &80835484934835092
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +101,7 @@ GameObject:
   - component: {fileID: 3386672766616528670}
   - component: {fileID: 6968801307043009908}
   - component: {fileID: 88409491487818456}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +182,7 @@ GameObject:
   - component: {fileID: 946567154489681607}
   - component: {fileID: 6021725516117432281}
   - component: {fileID: 5306217748923019712}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Wall6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +203,7 @@ Transform:
   - {fileID: 3386672766616528670}
   - {fileID: 152834903428122961}
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
 --- !u!50 &7245181498124603110
 Rigidbody2D:
@@ -217,7 +307,7 @@ GameObject:
   - component: {fileID: 5308873263244954151}
   - component: {fileID: 6841870527982512066}
   - component: {fileID: 3942618026278817509}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,11 +322,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441052296177499115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.31, y: -2.33, z: 0}
+  m_LocalPosition: {x: -3.16, y: -0.74, z: 0}
   m_LocalScale: {x: 6.140831, y: 1.1836, z: 1}
   m_Children: []
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5308873263244954151
 SpriteRenderer:
@@ -297,14 +387,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441052296177499115}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -346,7 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526827952179135323}
   - component: {fileID: 8248968213141414020}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Next Room Trigger
   m_TagString: NextRoomTrigger
   m_Icon: {fileID: 0}
@@ -403,7 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444599553223112999}
   - component: {fileID: 415049599055649268}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Next Room Trigger
   m_TagString: NextRoomTrigger
   m_Icon: {fileID: 0}
@@ -460,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 152834903428122961}
   - component: {fileID: 1849401819947658095}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Next Room Trigger
   m_TagString: NextRoomTrigger
   m_Icon: {fileID: 0}
@@ -517,7 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5798767657174318757}
   - component: {fileID: 1403736734064631969}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EmptyRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,6 +625,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1548956735633006377}
   - {fileID: 8536631008190596874}
   - {fileID: 382994599634005246}
   - {fileID: 2682767282563987854}
@@ -578,7 +669,7 @@ GameObject:
   - component: {fileID: 4890967730108887008}
   - component: {fileID: 7641760992880968494}
   - component: {fileID: 6742113099900804761}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +748,7 @@ GameObject:
   - component: {fileID: 1948748236098028520}
   - component: {fileID: 1000828460832934962}
   - component: {fileID: 8648980466904694914}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1985764770270279510}
   - component: {fileID: 5471071805380062827}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Next Room Trigger
   m_TagString: NextRoomTrigger
   m_Icon: {fileID: 0}
@@ -792,7 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3503068545947802196}
   - component: {fileID: 9069435638013313586}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Next Room Trigger
   m_TagString: NextRoomTrigger
   m_Icon: {fileID: 0}
@@ -850,7 +941,7 @@ GameObject:
   - component: {fileID: 827733421723057860}
   - component: {fileID: 3388088963926169574}
   - component: {fileID: 6068194175272401263}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +1020,7 @@ GameObject:
   - component: {fileID: 567954361760707922}
   - component: {fileID: 6582516766480059137}
   - component: {fileID: 1426265756132581864}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1101,7 @@ GameObject:
   - component: {fileID: 2406110105966250517}
   - component: {fileID: 1735498305303115399}
   - component: {fileID: 8918752922672903112}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1122,7 @@ Transform:
   - {fileID: 1948748236098028520}
   - {fileID: 444599553223112999}
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8834325348273271645
 Rigidbody2D:
@@ -1135,7 +1226,7 @@ GameObject:
   - component: {fileID: 7721638363969570500}
   - component: {fileID: 8315104623715349800}
   - component: {fileID: 5317332413986206076}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1245,7 @@ Transform:
   m_LocalScale: {x: 3.5242229, y: 1.1836, z: 1}
   m_Children: []
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7721638363969570500
 SpriteRenderer:
@@ -1215,14 +1306,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5595923833701225077}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1266,7 +1357,7 @@ GameObject:
   - component: {fileID: 5918310402697712979}
   - component: {fileID: 1851437594714254527}
   - component: {fileID: 8965764284835309892}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1285,7 +1376,7 @@ Transform:
   m_LocalScale: {x: 2.5606, y: 1.1836, z: 1}
   m_Children: []
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5918310402697712979
 SpriteRenderer:
@@ -1346,14 +1437,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5870540934679880959}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1396,7 +1487,7 @@ GameObject:
   - component: {fileID: 3409660652619258040}
   - component: {fileID: 916211655350216099}
   - component: {fileID: 6028125294262193233}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1477,7 +1568,7 @@ GameObject:
   - component: {fileID: 4851517549756666924}
   - component: {fileID: 8215670825935877386}
   - component: {fileID: 1164610276626612349}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Wall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1498,7 +1589,7 @@ Transform:
   - {fileID: 567954361760707922}
   - {fileID: 526827952179135323}
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -120}
 --- !u!50 &4692678444721891050
 Rigidbody2D:
@@ -1603,7 +1694,7 @@ GameObject:
   - component: {fileID: 1845305372539534500}
   - component: {fileID: 7283503162017330147}
   - component: {fileID: 260474745227270957}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1624,7 +1715,7 @@ Transform:
   - {fileID: 3409660652619258040}
   - {fileID: 6592632338734303764}
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
 --- !u!50 &6278656400886795035
 Rigidbody2D:
@@ -1729,7 +1820,7 @@ GameObject:
   - component: {fileID: 4431558297195269074}
   - component: {fileID: 7913703833558612445}
   - component: {fileID: 9017289837318017529}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Wall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1750,7 +1841,7 @@ Transform:
   - {fileID: 4890967730108887008}
   - {fileID: 3503068545947802196}
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!50 &7653812974817056063
 Rigidbody2D:
@@ -1855,7 +1946,7 @@ GameObject:
   - component: {fileID: 8250838231617886987}
   - component: {fileID: 8902503760362547912}
   - component: {fileID: 6009154311526765798}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Wall5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1876,7 +1967,7 @@ Transform:
   - {fileID: 827733421723057860}
   - {fileID: 1985764770270279510}
   m_Father: {fileID: 5798767657174318757}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 120}
 --- !u!50 &5589548898399841341
 Rigidbody2D:
@@ -1978,7 +2069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6592632338734303764}
   - component: {fileID: 1830604252687141193}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Next Room Trigger
   m_TagString: NextRoomTrigger
   m_Icon: {fileID: 0}

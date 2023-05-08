@@ -6,16 +6,9 @@ public class RoomManager : MonoBehaviour
 {
     public static RoomManager Instance;
 
-    private Room[,] map = new Room[10,10];
-    [System.Serializable]
-    public struct RoomPalette
-    {
-        public Room emptyRoom;
-    }
+    private Room[,] rooms = new Room[10,10];
 
-    [SerializeField]
-    public RoomPalette roomPalette;
-
+    public Map map;
     public Player player;
     public CurrentRoom currentRoom;
 
@@ -32,54 +25,51 @@ public class RoomManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        GenerateMap();
+        map.GenerateMap();
+        CopyMap();
 
-        currentRoom.room = Instantiate(map[0, 0], Vector3.zero, Quaternion.identity,currentRoom.transform);
+        rooms[0, 0].gameObject.SetActive(true);
+        currentRoom.room = rooms[0, 0];
     }
 
-    void GenerateMap()
+    public void CopyMap()
     {
-        for (int i=0;i<10;i++)
-        {
-            for(int j=0;j<10;j++)
-            {
-                map[i, j] = roomPalette.emptyRoom;
-            }
-        }
-
         for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 10; j++)
             {
-                for (int wallNumber=0; wallNumber<map[i,j].walls.Count;wallNumber++)
-                {
-                    map[i, j].nextRoomAvailable[wallNumber] = true;
-                }
+                rooms[i, j] = Instantiate(map.map[i,j],transform);
+                rooms[i, j].gameObject.SetActive(false);
             }
         }
     }
 
     public void MoveRoom(Wall passWall)
     {
-        Debug.Log("move room");
         StartCoroutine("MoveRoomIE", passWall);
     }
 
     public IEnumerator MoveRoomIE(Wall passWall)
     {
         //다음 룸 복제
-        Vector2Int nextRoomCoord = currentRoom.roomCoord+passWall.nextCoord;
-        Debug.Log(nextRoomCoord.ToString());
-        Room nextRoom = map[nextRoomCoord.x, nextRoomCoord.y];
+        Vector2Int nextRoomCoord = currentRoom.roomCoord + passWall.nextCoord;
         Vector3 nextRoomPosition = Data.RoomPositionByCoord(passWall.nextCoord);
 
         Room prevRoom = currentRoom.room;
-        currentRoom.room = Instantiate(nextRoom, nextRoomPosition, Quaternion.identity, currentRoom.transform);
+        Room nextRoom = rooms[nextRoomCoord.x, nextRoomCoord.y];
+        nextRoom.transform.position = nextRoomPosition;
+        nextRoom.gameObject.SetActive(true);
+
+
+        currentRoom.room = nextRoom;
         currentRoom.roomCoord = nextRoomCoord;
 
         //움직임 중 돌발상황 제어
         player.enabled = false;
-        player.gameObject.layer = 7;
+        player.ResetMovement();
+        player.DisablePhysics();
+        nextRoom.DisablePhysics();
+        prevRoom.DisablePhysics();
 
         //움직임
         Vector3 nextRoomStart = nextRoomPosition;
@@ -105,10 +95,10 @@ public class RoomManager : MonoBehaviour
 
         // - 움직임 중 돌발상황 제어
         player.enabled = true;
-        player.gameObject.layer = 6;
-        player.ResetMovement();
+        player.EnablePhysics();
+        nextRoom.EnablePhysics();
 
-        //이전 룸 삭제
-        Destroy(prevRoom.gameObject);
+        //룸 제어
+        prevRoom.gameObject.SetActive(false);
     }
 }

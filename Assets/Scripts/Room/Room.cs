@@ -8,7 +8,7 @@ public class Room : MonoBehaviour
     public bool[] nextRoomAvailable;
     void Awake()
     {
-        Open();
+        Close();
     }
 
     public void Open()
@@ -30,6 +30,23 @@ public class Room : MonoBehaviour
         for (int i = 0; i < walls.Count; i++)
         {
             walls[i].Close();
+        }
+    }
+    public void EnablePhysics()
+    {
+        gameObject.layer = 6;
+        foreach (Wall wall in walls)
+        {
+            wall.gameObject.layer = 8;
+        }
+    }
+
+    public void DisablePhysics()
+    {
+        gameObject.layer = 7;
+        foreach (Wall wall in walls)
+        {
+            wall.gameObject.layer = 6;
         }
     }
 }
