@@ -4,13 +4,13 @@ using UnityEngine;
 public static class Data
 {
     public static readonly int nextRoomNum = 6;
-    public static readonly List<Vector2Int> nextRoomCord = new List<Vector2Int>
+    public static readonly float roomPositionDx = 7.79422f;
+    public static readonly float roomPositionDy = 9f;
+
+    public static Vector3 RoomPositionByCoord(Vector2Int coord)
     {
-        new Vector2Int(1,1),
-        new Vector2Int(0,1),
-        new Vector2Int(-1,0),
-        new Vector2Int(-1,-1),
-        new Vector2Int(0,-1),
-        new Vector2Int(1,0),
-    };
+        float x = (-coord.x * 2 + coord.y * 2) * roomPositionDx;
+        float y = (coord.x + coord.y) * roomPositionDx;
+        return new Vector3(x, y);
+    }
 }

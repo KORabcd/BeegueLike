@@ -26,4 +26,8 @@ public class Entity : MonoBehaviour
 
     public EntityStatus entityStatus;
 
+    public void ResetMovement()
+    {
+        entityStatus.currentMovement = Vector2.zero;
+    }
 }

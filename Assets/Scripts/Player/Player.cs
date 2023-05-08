@@ -34,11 +34,7 @@ public class Player : Entity
         Vector2 movePosition = (Vector2)transform.position + Time.deltaTime * base.entityStatus.currentMovement;
         rigid.MovePosition(movePosition);
     }
-    private void LateUpdate()
-    {
-        PlayerFlip();
-    }
-    public void UpdateMovement()
+    private void UpdateMovement()
     {
         float acceleration;
         if (base.entityStatus.isFly) acceleration = base.entityStatus.flyAcceleration;
@@ -53,15 +49,27 @@ public class Player : Entity
         if (deltaMovement.magnitude > acceleration* Time.deltaTime) deltaMovement *= acceleration* Time.deltaTime / deltaMovement.magnitude;
         base.entityStatus.currentMovement += deltaMovement;
     }
-    public void InputMovement(InputAction.CallbackContext context)
+    private void InputMovement(InputAction.CallbackContext context)
     {
         playerStatus.inputMovement = context.ReadValue<Vector2>();
     }
     void PlayerFlip()
     {
+        //이미지 뒤집지 말고 스프라이트로 하자
         if(playerStatus.inputMovement.x !=0)
         {
             sprite.flipX = playerStatus.inputMovement.x > 0;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("NextRoomTrigger"))
+        {
+            Wall passWall = collision.transform.parent.GetComponent<Wall>();
+            RoomManager.Instance.MoveRoom(passWall);
+        }
+    }
+
+    
 }
