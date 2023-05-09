@@ -23,16 +23,5 @@ public class Map : MonoBehaviour
                 map[i, j] = roomPalette.emptyRoom;
             }
         }
-
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                for (int wallNumber = 0; wallNumber < map[i, j].walls.Count; wallNumber++)
-                {
-                    map[i, j].nextRoomAvailable[wallNumber] = true;
-                }
-            }
-        }
     }
 }

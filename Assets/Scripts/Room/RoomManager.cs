@@ -29,6 +29,7 @@ public class RoomManager : MonoBehaviour
         CopyMap();
 
         rooms[0, 0].gameObject.SetActive(true);
+        rooms[0, 0].animator.SetBool("Show", true);
         currentRoom.room = rooms[0, 0];
     }
 
@@ -38,8 +39,30 @@ public class RoomManager : MonoBehaviour
         {
             for (int j = 0; j < 10; j++)
             {
-                rooms[i, j] = Instantiate(map.map[i,j],transform);
+                rooms[i, j] = Instantiate(map.map[i,j],map.transform);
                 rooms[i, j].gameObject.SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                foreach (Wall wall in rooms[i, j].walls)
+                {
+                    int x = i + wall.nextCoord.x;
+                    int y = j + wall.nextCoord.y;
+                    if (x < 0 || y < 0)
+                    {
+                        rooms[i, j].nextRoomAvailable[wall.wallNumber] = false;
+                    }
+                    else
+                    {
+                        rooms[i, j].nextRoomAvailable[wall.wallNumber] = true;
+                    }
+                }
+
+                rooms[i, j].Open();
             }
         }
     }
@@ -70,6 +93,10 @@ public class RoomManager : MonoBehaviour
         player.DisablePhysics();
         nextRoom.DisablePhysics();
         prevRoom.DisablePhysics();
+
+        //·ë ¼û±â±â + º¸ÀÌ±â
+        nextRoom.animator.SetBool("Show", true);
+        prevRoom.animator.SetBool("Show", false);
 
         //¿òÁ÷ÀÓ
         Vector3 nextRoomStart = nextRoomPosition;

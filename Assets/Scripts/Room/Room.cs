@@ -6,6 +6,8 @@ public class Room : MonoBehaviour
 {
     public List<Wall> walls;
     public bool[] nextRoomAvailable;
+
+    public Animator animator;
     void Awake()
     {
         Open();

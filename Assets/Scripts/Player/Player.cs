@@ -49,9 +49,12 @@ public class Player : Entity
             rigid.drag = 0;
             Vector2 force = playerStatus.inputMovement * acceleration;
             float forceMultiplier = playerStatus.motionCurve.Evaluate(
-                Mathf.Clamp(((rigid.velocity/speedMax)-playerStatus.inputMovement).magnitude,
-                0,
-                2));
+                Mathf.Clamp(
+                    ((rigid.velocity/speedMax)-playerStatus.inputMovement).magnitude,
+                    0,
+                    2
+                    )
+                );
             rigid.AddForce(force * forceMultiplier);
         }
         else // no keys pressed
