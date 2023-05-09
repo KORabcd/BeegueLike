@@ -7,7 +7,9 @@ public class Player : Entity
     [System.Serializable]
     public struct PlayerStatus
     {
+        public AnimationCurve motionCurve;
         public Vector2 inputMovement;
+        public float movementDrag;
         public float invincTime;
         public float invincDelay;
     }
@@ -31,8 +33,6 @@ public class Player : Entity
     private void FixedUpdate()
     {
         UpdateMovement();
-        Vector2 movePosition = (Vector2)transform.position + Time.deltaTime * base.entityStatus.currentMovement;
-        rigid.MovePosition(movePosition);
     }
     private void UpdateMovement()
     {
@@ -44,10 +44,28 @@ public class Player : Entity
         if (base.entityStatus.isFly) speedMax = base.entityStatus.flySpeedMax;
         else speedMax = base.entityStatus.walkSpeedMax;
 
-        Vector2 inputMovement = playerStatus.inputMovement * speedMax;
-        Vector2 deltaMovement = inputMovement - base.entityStatus.currentMovement;
-        if (deltaMovement.magnitude > acceleration* Time.deltaTime) deltaMovement *= acceleration* Time.deltaTime / deltaMovement.magnitude;
-        base.entityStatus.currentMovement += deltaMovement;
+        if (playerStatus.inputMovement.magnitude != 0) // moving
+        {
+            rigid.drag = 0;
+            Vector2 force = playerStatus.inputMovement * acceleration;
+            float forceMultiplier = playerStatus.motionCurve.Evaluate(
+                Mathf.Clamp(((rigid.velocity/speedMax)-playerStatus.inputMovement).magnitude,
+                0,
+                2));
+            rigid.AddForce(force * forceMultiplier);
+        }
+        else // no keys pressed
+        {
+            rigid.drag = playerStatus.movementDrag;
+        }
+
+
+        if(rigid.velocity.magnitude>speedMax)
+        {
+            rigid.velocity *= speedMax / rigid.velocity.magnitude;
+        }
+
+        base.entityStatus.currentMovement = rigid.velocity;
     }
     private void InputMovement(InputAction.CallbackContext context)
     {
@@ -81,5 +99,9 @@ public class Player : Entity
         gameObject.layer = 7;
     }
 
+    public void ResetMovement()
+    {
+        rigid.velocity = Vector2.zero;
+    }
 
 }

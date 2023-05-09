@@ -8,7 +8,7 @@ public class Room : MonoBehaviour
     public bool[] nextRoomAvailable;
     void Awake()
     {
-        Close();
+        Open();
     }
 
     public void Open()

@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512539576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1978401939}
@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735986795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.1477056}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884412699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.1477056}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -390,14 +390,66 @@ MonoBehaviour:
     nowHealth: 10
     currentMovement: {x: 0, y: 0}
     walkSpeedMax: 10
-    walkAcceleration: 80
+    walkAcceleration: 100
     flySpeedMax: 10
     flyAcceleration: 80
     canFly: 1
     isFly: 0
     isDead: 0
   playerStatus:
+    motionCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: -0.012333753
+        value: -0.0056290627
+        inSlope: 10.1963005
+        outSlope: 10.1963005
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.037282683
+        value: 0.500275
+        inSlope: 5.0160775
+        outSlope: 5.0160775
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.60336185
+        outWeight: 0.17796107
+      - serializedVersion: 3
+        time: 0.26723212
+        value: 1.148734
+        inSlope: 0.21874762
+        outSlope: 0.21874762
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.82049847
+        outWeight: 0.14296475
+      - serializedVersion: 3
+        time: 1.1148827
+        value: 2.5775502
+        inSlope: 1.0354676
+        outSlope: 1.0354676
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.22303078
+        outWeight: 0.20409496
+      - serializedVersion: 3
+        time: 1.9905994
+        value: 2.87043
+        inSlope: 0.33444586
+        outSlope: 0.33444586
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     inputMovement: {x: 0, y: 0}
+    movementDrag: 60
     invincTime: 0
     invincDelay: 0
   rigid: {fileID: 1673988806}
@@ -417,7 +469,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.7
 --- !u!50 &1673988806
 Rigidbody2D:
   serializedVersion: 4
@@ -447,8 +499,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673988803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
