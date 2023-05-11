@@ -8,11 +8,11 @@ public class Room : MonoBehaviour
     public bool[] nextRoomAvailable;
 
     public Animator animator;
-    void Awake()
+
+    private void Start()
     {
         Open();
     }
-
     public void Open()
     {
         for (int i = 0; i < walls.Count; i++)

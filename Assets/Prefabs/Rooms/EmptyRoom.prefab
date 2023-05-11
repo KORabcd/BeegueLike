@@ -182,7 +182,6 @@ GameObject:
   - component: {fileID: 946567154489681607}
   - component: {fileID: 6021725516117432281}
   - component: {fileID: 5306217748923019712}
-  - component: {fileID: 3547985922048042358}
   m_Layer: 8
   m_Name: Wall6
   m_TagString: Untagged
@@ -293,60 +292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallNumber: 5
   nextCoord: {x: 1, y: 0}
+  spritePrefab: {fileID: 970258776313080063, guid: 7b608d8893fb23041b90c4cfcc28b352, type: 3}
   door: {fileID: 80835484934835092}
   nextTrigger: {fileID: 2287507649203983008}
   playerInitPos: {x: -6.9282, y: 4, z: 0}
---- !u!212 &3547985922048042358
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135877621547087831}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c259e5c7798d2ec46b5e31430a5232c7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
-  m_DrawMode: 0
-  m_Size: {x: 11.42, y: 1.65}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &900391474109360089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1078,6 @@ GameObject:
   - component: {fileID: 2406110105966250517}
   - component: {fileID: 1735498305303115399}
   - component: {fileID: 8918752922672903112}
-  - component: {fileID: 3224942841677156626}
   m_Layer: 8
   m_Name: Wall1
   m_TagString: Untagged
@@ -1240,60 +1188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallNumber: 0
   nextCoord: {x: 1, y: 1}
+  spritePrefab: {fileID: 970258776313080063, guid: 7b608d8893fb23041b90c4cfcc28b352, type: 3}
   door: {fileID: 2743046788355153550}
   nextTrigger: {fileID: 2240535936685398428}
   playerInitPos: {x: 0, y: 8, z: 0}
---- !u!212 &3224942841677156626
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4994285408782627716}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c259e5c7798d2ec46b5e31430a5232c7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
-  m_DrawMode: 0
-  m_Size: {x: 11.42, y: 1.65}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &5978451643799662222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1284,6 @@ GameObject:
   - component: {fileID: 4851517549756666924}
   - component: {fileID: 8215670825935877386}
   - component: {fileID: 1164610276626612349}
-  - component: {fileID: 5884204401668456759}
   m_Layer: 8
   m_Name: Wall3
   m_TagString: Untagged
@@ -1497,60 +1394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallNumber: 2
   nextCoord: {x: -1, y: 0}
+  spritePrefab: {fileID: 970258776313080063, guid: 7b608d8893fb23041b90c4cfcc28b352, type: 3}
   door: {fileID: 4440404326223139945}
   nextTrigger: {fileID: 1205324715403947428}
   playerInitPos: {x: 6.9282, y: -4, z: 0}
---- !u!212 &5884204401668456759
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6563666725821212416}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c259e5c7798d2ec46b5e31430a5232c7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
-  m_DrawMode: 0
-  m_Size: {x: 11.42, y: 1.65}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &7846313348228214522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1411,6 @@ GameObject:
   - component: {fileID: 1845305372539534500}
   - component: {fileID: 7283503162017330147}
   - component: {fileID: 260474745227270957}
-  - component: {fileID: 2805956238708126375}
   m_Layer: 8
   m_Name: Wall2
   m_TagString: Untagged
@@ -1675,60 +1521,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallNumber: 1
   nextCoord: {x: 0, y: 1}
+  spritePrefab: {fileID: 970258776313080063, guid: 7b608d8893fb23041b90c4cfcc28b352, type: 3}
   door: {fileID: 5978451643799662222}
   nextTrigger: {fileID: 9098782613160044802}
   playerInitPos: {x: 6.9282, y: 4, z: 0}
---- !u!212 &2805956238708126375
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7846313348228214522}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c259e5c7798d2ec46b5e31430a5232c7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
-  m_DrawMode: 0
-  m_Size: {x: 11.42, y: 1.65}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &8152663994419509585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1538,6 @@ GameObject:
   - component: {fileID: 4431558297195269074}
   - component: {fileID: 7913703833558612445}
   - component: {fileID: 9017289837318017529}
-  - component: {fileID: 3246881598215132843}
   m_Layer: 8
   m_Name: Wall4
   m_TagString: Untagged
@@ -1853,60 +1648,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallNumber: 3
   nextCoord: {x: -1, y: -1}
+  spritePrefab: {fileID: 970258776313080063, guid: 7b608d8893fb23041b90c4cfcc28b352, type: 3}
   door: {fileID: 2544272353201402140}
   nextTrigger: {fileID: 3382276119510607606}
   playerInitPos: {x: 0, y: -8, z: 0}
---- !u!212 &3246881598215132843
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8152663994419509585}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c259e5c7798d2ec46b5e31430a5232c7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
-  m_DrawMode: 0
-  m_Size: {x: 11.42, y: 1.65}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &8537082155340835036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,7 +1665,6 @@ GameObject:
   - component: {fileID: 8250838231617886987}
   - component: {fileID: 8902503760362547912}
   - component: {fileID: 6009154311526765798}
-  - component: {fileID: 3464679356397715593}
   m_Layer: 8
   m_Name: Wall5
   m_TagString: Untagged
@@ -2031,60 +1775,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallNumber: 4
   nextCoord: {x: 0, y: -1}
+  spritePrefab: {fileID: 970258776313080063, guid: 7b608d8893fb23041b90c4cfcc28b352, type: 3}
   door: {fileID: 3528765520719214134}
   nextTrigger: {fileID: 3314568408488187545}
   playerInitPos: {x: -6.9282, y: -4, z: 0}
---- !u!212 &3464679356397715593
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8537082155340835036}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c259e5c7798d2ec46b5e31430a5232c7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
-  m_DrawMode: 0
-  m_Size: {x: 11.42, y: 1.65}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &8936860197791061470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,7 +1851,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5f4b02e85087c3b4ebba2ff65d39b3d9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

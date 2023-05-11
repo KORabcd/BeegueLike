@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public static class Data
 {
-    public static readonly int nextRoomNum = 6;
     public static readonly float roomPositionDx = 10.3923f;
     public static readonly float roomPositionDy = 12;
+    public static readonly Vector3 playerInitPos = new Vector3(0, -8);
 
     public static Vector3 RoomPositionByCoord(Vector2Int coord)
     {

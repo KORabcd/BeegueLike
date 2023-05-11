@@ -6,7 +6,7 @@ public class RoomManager : MonoBehaviour
 {
     public static RoomManager Instance;
 
-    private Room[,] rooms = new Room[10,10];
+    public Room[,] rooms = new Room[10,10];
 
     public Map map;
     public Player player;
@@ -26,45 +26,13 @@ public class RoomManager : MonoBehaviour
     {
         Instance = this;
         map.GenerateMap();
-        CopyMap();
+        map.MaterializeMap();
 
         rooms[0, 0].gameObject.SetActive(true);
         rooms[0, 0].animator.SetBool("Show", true);
         currentRoom.room = rooms[0, 0];
-    }
 
-    public void CopyMap()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                rooms[i, j] = Instantiate(map.map[i,j],map.transform);
-                rooms[i, j].gameObject.SetActive(false);
-            }
-        }
-
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                foreach (Wall wall in rooms[i, j].walls)
-                {
-                    int x = i + wall.nextCoord.x;
-                    int y = j + wall.nextCoord.y;
-                    if (x < 0 || y < 0)
-                    {
-                        rooms[i, j].nextRoomAvailable[wall.wallNumber] = false;
-                    }
-                    else
-                    {
-                        rooms[i, j].nextRoomAvailable[wall.wallNumber] = true;
-                    }
-                }
-
-                rooms[i, j].Open();
-            }
-        }
+        player.transform.position = Data.playerInitPos;
     }
 
     public void MoveRoom(Wall passWall)
@@ -96,6 +64,7 @@ public class RoomManager : MonoBehaviour
 
         //·ë ¼û±â±â + º¸ÀÌ±â
         nextRoom.animator.SetBool("Show", true);
+        nextRoom.Open();
         prevRoom.animator.SetBool("Show", false);
 
         //¿òÁ÷ÀÓ

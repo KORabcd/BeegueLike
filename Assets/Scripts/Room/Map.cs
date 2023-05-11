@@ -24,4 +24,37 @@ public class Map : MonoBehaviour
             }
         }
     }
+
+    public void MaterializeMap()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                RoomManager.Instance.rooms[i, j] = Instantiate(map[i, j], transform);
+                RoomManager.Instance.rooms[i, j].gameObject.SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                foreach (Wall wall in RoomManager.Instance.rooms[i, j].walls)
+                {
+                    int x = i + wall.nextCoord.x;
+                    int y = j + wall.nextCoord.y;
+                    if (x < 0 || y < 0)
+                    {
+                        RoomManager.Instance.rooms[i, j].nextRoomAvailable[wall.wallNumber] = false;
+                    }
+                    else
+                    {
+                        RoomManager.Instance.rooms[i, j].nextRoomAvailable[wall.wallNumber] = true;
+                    }
+                }
+
+            }
+        }
+    }
 }
