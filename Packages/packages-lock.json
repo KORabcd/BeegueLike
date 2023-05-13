@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.coffee.softmask-for-ugui": {
-      "version": "file:C:/Program Files/Unity/Packages/SoftMaskForUGUI-main",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.2d.animation": {
       "version": "5.1.1",
       "depth": 0,
