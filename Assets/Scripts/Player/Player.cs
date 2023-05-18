@@ -17,7 +17,6 @@ public class Player : Entity
     [SerializeField]
     private PlayerStatus playerStatus;
     public Rigidbody2D rigid;
-    public SpriteRenderer sprite;
     private void Awake()
     {
     }
@@ -73,14 +72,6 @@ public class Player : Entity
     private void InputMovement(InputAction.CallbackContext context)
     {
         playerStatus.inputMovement = context.ReadValue<Vector2>();
-    }
-    void PlayerFlip()
-    {
-        //이미지 뒤집지 말고 스프라이트로 하자
-        if(playerStatus.inputMovement.x !=0)
-        {
-            sprite.flipX = playerStatus.inputMovement.x > 0;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
