@@ -7,6 +7,8 @@ TagManager:
   - PlayerMapPosition
   - RoomMapPosition
   - NextRoomTrigger
+  - MainCanvas
+  - ItemGrid
   layers:
   - Default
   - TransparentFX
