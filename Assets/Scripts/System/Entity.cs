@@ -24,5 +24,6 @@ public class Entity : MonoBehaviour
         public bool isDead;
     }
 
+    [SerializeField]
     public EntityStatus entityStatus;
 }
