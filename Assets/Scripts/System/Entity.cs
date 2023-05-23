@@ -8,22 +8,30 @@ public class Entity : MonoBehaviour
     public struct EntityStatus
     {
         public int maxHealth;
-        public int nowHealth;
+        public int currentHealth;
 
-        public Vector2 currentMovement;
+        public float walkSpeed;
 
-        public float walkSpeedMax;
-        public float walkAcceleration;
-
-        public float flySpeedMax;
-        public float flyAcceleration;
+        public float flySpeed;
 
         public bool canFly;
-        public bool isFly;
+        public bool isFlying;
 
         public bool isDead;
     }
 
     [SerializeField]
     public EntityStatus entityStatus;
+
+    public float currentSpeed()
+    {
+        if (!entityStatus.isFlying) return entityStatus.walkSpeed;
+        else return entityStatus.flySpeed;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        entityStatus.currentHealth -= damage;
+        if (entityStatus.currentHealth < 0) entityStatus.currentHealth = 0;
+    }
 }

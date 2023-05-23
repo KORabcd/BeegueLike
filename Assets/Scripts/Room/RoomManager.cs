@@ -40,7 +40,7 @@ public class RoomManager : MonoBehaviour
         StartCoroutine("MoveRoomIE", passWall);
     }
 
-    public IEnumerator MoveRoomIE(Wall passWall)
+    private IEnumerator MoveRoomIE(Wall passWall)
     {
         //다음 룸 복제
         Vector2Int nextRoomCoord = currentRoom.roomCoord + passWall.nextCoord;
@@ -55,11 +55,16 @@ public class RoomManager : MonoBehaviour
         currentRoom.room = nextRoom;
         currentRoom.roomCoord = nextRoomCoord;
 
+        //적 멈추기
+        EnemyManager.Instance.enemyEnabled = false;
+
         //움직임 중 돌발상황 제어
         player.enabled = false;
         player.ResetMovement();
         player.DisablePhysics();
+        nextRoom.enabled = false;
         nextRoom.DisablePhysics();
+        prevRoom.enabled = false;
         prevRoom.DisablePhysics();
 
         //룸 숨기기 + 보이기
@@ -89,9 +94,13 @@ public class RoomManager : MonoBehaviour
             yield return null;
         }
 
+        // - 적 멈추기
+        EnemyManager.Instance.enemyEnabled = true;
+
         // - 움직임 중 돌발상황 제어
         player.enabled = true;
         player.EnablePhysics();
+        nextRoom.enabled = true;
         nextRoom.EnablePhysics();
 
         //룸 제어

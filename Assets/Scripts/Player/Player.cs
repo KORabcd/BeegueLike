@@ -5,24 +5,33 @@ using UnityEngine.InputSystem;
 public class Player : Entity
 {
     [System.Serializable]
+    public struct PlayerMovement
+    {
+        public Vector2 inputMovement;
+        public float drag;
+        public float walkAcceleration;
+        public float flyAcceleration;
+        public AnimationCurve accelerationCurve;
+    }
+
+    [System.Serializable]
     public struct PlayerStatus
     {
-        public AnimationCurve motionCurve;
-        public Vector2 inputMovement;
-        public float movementDrag;
         public float invincTime;
         public float invincDelay;
     }
 
     [SerializeField]
+    private PlayerMovement playerMovement;
+
+    [SerializeField]
     private PlayerStatus playerStatus;
-    public Rigidbody2D rigid;
+    public Collider2D col { get; set; }
+    public Rigidbody2D rigid { get; set; }
     private void Awake()
     {
-    }
-    private void Start()
-    {
-
+        col = GetComponent<Collider2D>();
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -36,20 +45,18 @@ public class Player : Entity
     private void UpdateMovement()
     {
         float acceleration;
-        if (base.entityStatus.isFly) acceleration = base.entityStatus.flyAcceleration;
-        else acceleration = base.entityStatus.walkAcceleration;
+        if (entityStatus.isFlying) acceleration = playerMovement.flyAcceleration;
+        else acceleration = playerMovement.walkAcceleration;
 
-        float speedMax;
-        if (base.entityStatus.isFly) speedMax = base.entityStatus.flySpeedMax;
-        else speedMax = base.entityStatus.walkSpeedMax;
+        float speedMax = currentSpeed();
 
-        if (playerStatus.inputMovement.magnitude != 0) // moving
+        if (playerMovement.inputMovement.magnitude != 0) // moving
         {
             rigid.drag = 0;
-            Vector2 force = playerStatus.inputMovement * acceleration;
-            float forceMultiplier = playerStatus.motionCurve.Evaluate(
+            Vector2 force = playerMovement.inputMovement * acceleration;
+            float forceMultiplier = playerMovement.accelerationCurve.Evaluate(
                 Mathf.Clamp(
-                    ((rigid.velocity/speedMax)-playerStatus.inputMovement).magnitude,
+                    ((rigid.velocity/speedMax)- playerMovement.inputMovement).magnitude,
                     0,
                     2
                     )
@@ -58,7 +65,7 @@ public class Player : Entity
         }
         else // no keys pressed
         {
-            rigid.drag = playerStatus.movementDrag;
+            rigid.drag = playerMovement.drag;
         }
 
 
@@ -66,12 +73,10 @@ public class Player : Entity
         {
             rigid.velocity *= speedMax / rigid.velocity.magnitude;
         }
-
-        base.entityStatus.currentMovement = rigid.velocity;
     }
     private void InputMovement(InputAction.CallbackContext context)
     {
-        playerStatus.inputMovement = context.ReadValue<Vector2>();
+        playerMovement.inputMovement = context.ReadValue<Vector2>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
