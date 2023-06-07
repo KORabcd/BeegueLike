@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    public Room[,] map = new Room[10, 10];
+    public int height, width;
+    public int inactiveRoomCnt;
+    public int specialRoomCnt;
+    public Room[,] map;
+    public int[,] mapType;
     [System.Serializable]
     public struct RoomPalette
     {
         public Room emptyRoom;
+        public Room inactiveRoom;
     }
-
     [SerializeField]
     public RoomPalette roomPalette;
-
     public void GenerateMap()
     {
+        map = new Room[10, 10];
+        do
+        {
+            mapType = MapGenerator.GenerateMapTypes(height, width, inactiveRoomCnt, specialRoomCnt);
+            Debug.Log("asdf");
+        } while (MapGenerator.BFS(mapType, height, width) == false);
         for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 10; j++)
             {
+                Debug.Log("(" + i + "," + j + ")" + ":" + mapType[i, j]);
                 map[i, j] = roomPalette.emptyRoom;
             }
         }
