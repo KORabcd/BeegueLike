@@ -13,7 +13,7 @@ public class Map : MonoBehaviour
     public struct RoomPalette
     {
         public Room emptyRoom;
-        public Room inactiveRoom;
+        //public Room inactiveRoom;
     }
     [SerializeField]
     public RoomPalette roomPalette;
@@ -23,14 +23,16 @@ public class Map : MonoBehaviour
         do
         {
             mapType = MapGenerator.GenerateMapTypes(height, width, inactiveRoomCnt, specialRoomCnt);
-            Debug.Log("asdf");
         } while (MapGenerator.BFS(mapType, height, width) == false);
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < height; j++)
             {
-                Debug.Log("(" + i + "," + j + ")" + ":" + mapType[i, j]);
-                map[i, j] = roomPalette.emptyRoom;
+                if (i - j < width && j - i < width)
+                {
+                    //Debug.Log("(" + i + "," + j + ")" + ":" + mapType[i, j]);
+                    map[i, j] = roomPalette.emptyRoom;
+                }
             }
         }
     }

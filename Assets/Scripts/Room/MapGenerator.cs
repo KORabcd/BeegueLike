@@ -29,23 +29,22 @@ public static class MapGenerator
                         list[1].Add(new Coord() { x = i, y = j });
                     if (i <= width - 1 && j >= width - 1)
                     {
-                        Debug.Log(i + "," + j); 
+                        //Debug.Log(i + "," + j);
                         list[2].Add(new Coord() { x = i, y = j });
                     }
                     if (i < width - 1 && j < width - 1)
                         list[3].Add(new Coord() { x = i, y = j });
                 }
         }
-        for (int i = 0; i < 4; i++)
+        /*for (int i = 0; i < 4; i++)
         {
             Debug.Log(i + "번째 방그룹");
-            Debug.Log("방 개수 : " + list[2].Count);
+            Debug.Log("방 개수 : " + list[i].Count);
             for (int j = 0; j < list[i].Count; j++)
             {
                 Debug.Log("(" + list[i][j].x + "," + list[i][j].y + ")");
             }
-        }
-        Debug.Log(list[2].Count);
+        }    디버깅 */
         for (int i = 0; i < 4; i++)
         {
             for (int j = 0; j < inactiveRoomCnt / 4; j++)
@@ -58,26 +57,27 @@ public static class MapGenerator
         for (int i = 0; i < 4; i++)
         {
             for (int j = 0; j < specialRoomCnt / 4; j++)
-            {
-                int rand = Random.Range(0, list[i].Count);
+            { 
+                int rand = Random.Range(0, list[i].Count); 
+                int x1 = list[i][rand].x, y1 = list[i][rand].y;
                 list[i].RemoveAt(rand);
-                //Debug.Log(rand);
-                //int x1 = list[i][rand].x, y1 = list[i][rand].y;
                 int k;
-                /*for (k = 0; k < 6; k++)
+                for (k = 0; k < 6; k++)
                 {
-                    int x2 = x1 + dxy[0, k], y2 = dxy[1, k];
-                    if (x2 >= 0 && y2 >= 0 && x1 < height && y1 < height && mapType[x2, y2] >= 0)
-                        break;
+                    int x2 = x1 + dxy[0, k], y2 = y1 + dxy[1, k];
+                    if (x2 >= 0 && y2 >= 0 && x2 < height && y2 < height)
+                        if (mapType[x2, y2] >= 0)
+                            break;
                 }
-                if(k == 6)
+                if (k == 6)
                 {
                     j--;
                     continue;
-                }*/
-                mapType[list[i][rand].x, list[i][rand].y] = 1;
+                }
+                mapType[x1, y1] = 1;
             }
         }
+        //Debug.Log("MapGenarationEnd");
         return mapType;
     }
     public static bool BFS(int[,] mapType, int height, int width)
@@ -92,7 +92,7 @@ public static class MapGenerator
                 continue;
             if (num.x == height - 1 && num.y == height - 1)
                 return true;
-            que.Enqueue(new Coord() { x = num.x + 1, y = num.y });  
+            que.Enqueue(new Coord() { x = num.x + 1, y = num.y });
             que.Enqueue(new Coord() { x = num.x, y = num.y + 1 });
         }
         return false;
