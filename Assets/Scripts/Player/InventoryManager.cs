@@ -13,6 +13,16 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemUIParent;
     public GameObject ItemUIHusks;
+
+    public Transform QuickUIParent;
+
+    public GameObject[] QuickGrids;
+    public int[] QuickGridAvailable;
+
+    public Transform TrashUIParent;
+
+    public GameObject TrashGrid;
+    public int TrashGridAvailable;
     void Start()
     {
         ItemGrids = GameObject.FindGameObjectsWithTag("ItemGrid");
