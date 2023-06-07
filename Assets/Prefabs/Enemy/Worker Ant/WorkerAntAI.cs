@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyAI : MonoBehaviour
+public class WorkerAntAI : MonoBehaviour
 {
-    public Transform target;
     public float nextWayPointDistance = 3f;
     public Vector2 direction { get; set; }
 
@@ -13,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     int currentWayPoint;
     bool reached;
 
+    public WorkerAnt workerAnt;
     public Seeker seeker;
     public Rigidbody2D rigid;
     // Start is called before the first frame update
@@ -23,7 +23,12 @@ public class EnemyAI : MonoBehaviour
 
     void UpdatePath()
     {
-        if(seeker.IsDone())seeker.StartPath(rigid.position, target.position, OnPathComplete);
+        if(workerAnt.target == null)
+        {
+            return;
+        }
+
+        if(seeker.IsDone())seeker.StartPath(rigid.position, workerAnt.target.position, OnPathComplete);
     }
 
     void OnPathComplete(Path p)
@@ -31,27 +36,26 @@ public class EnemyAI : MonoBehaviour
         if(!p.error)
         {
             path = p;
-            currentWayPoint = 0;
+            currentWayPoint = 1;
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(path == null)
-        {
 
+        if(path == null || workerAnt.target == null)
+        {
+            return;
+        }
+
+        if(currentWayPoint >= path.vectorPath.Count-1)
+        {
+            reached = true;
         }
         else
         {
-            if(currentWayPoint >= path.vectorPath.Count)
-            {
-                reached = true;
-            }
-            else
-            {
-                reached = false;
-            }
+            reached = false;
         }
 
         if(reached)
@@ -60,13 +64,14 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            direction = ((Vector2)path.vectorPath[currentWayPoint] - rigid.position).normalized;
             float distance = Vector2.Distance(rigid.position, path.vectorPath[currentWayPoint]);
 
             if (distance < nextWayPointDistance)
             {
                 currentWayPoint++;
             }
+
+            direction = ((Vector2)path.vectorPath[currentWayPoint] - rigid.position).normalized;
         }
     }
 }
