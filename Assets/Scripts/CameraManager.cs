@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
     Vector3 velocity = Vector3.zero;
 
     [SerializeField] Transform target;
+
     // Start is called before the first frame update
     void Start()
     {

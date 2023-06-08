@@ -1442,6 +1442,7 @@ MonoBehaviour:
   specialRoomCnt: 4
   roomPalette:
     emptyRoom: {fileID: 1403736734064631969, guid: 553f78d16ab202f4dbccddf997440f7e, type: 3}
+    inactiveRoom: {fileID: 0}
 --- !u!4 &1825626044
 Transform:
   m_ObjectHideFlags: 0

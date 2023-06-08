@@ -1441,9 +1441,10 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  playerStatus:
+  status:
     invincTime: 0
     invincDelay: 0
+  weapon: {fileID: 0}
 --- !u!212 &2035183831
 SpriteRenderer:
   m_ObjectHideFlags: 0
