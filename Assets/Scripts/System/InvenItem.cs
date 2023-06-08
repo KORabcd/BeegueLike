@@ -62,7 +62,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 {
                     if (isQuick)
                     {
-                        transform.parent = inventory.ItemUIParent;
+                        transform.SetParent(inventory.ItemUIParent);
                         if (currentIndex != -1)
                             inventory.QuickGridAvailable[currentIndex] = 0;
                         else
