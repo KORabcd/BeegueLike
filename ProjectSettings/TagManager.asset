@@ -11,6 +11,7 @@ TagManager:
   - ItemGrid
   - QuickGrid
   - TrashGrid
+  - Item
   layers:
   - Default
   - TransparentFX

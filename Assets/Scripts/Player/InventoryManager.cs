@@ -65,7 +65,10 @@ public class InventoryManager : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ItemToInven(collision.gameObject);
-        Destroy(collision.gameObject);
+        if(collision.gameObject.tag == "Item")
+        {
+            ItemToInven(collision.gameObject);
+            Destroy(collision.gameObject);  
+        }
     }
 }

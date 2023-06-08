@@ -36,7 +36,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         originPos = transform.position;
-        transform.parent = isQuick == false ? inventory.ItemUIParent : inventory.QuickUIParent;
+         transform.SetParent(isQuick == false ? inventory.ItemUIParent : inventory.QuickUIParent);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -54,7 +54,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             return;
         }
         // 이벤트 처리부분
-        if (results[1].gameObject.tag == "ItemGrid")
+        if (results[1].gameObject.tag == "ItemGrid" || results[2].gameObject.tag == "ItemGrid")
         {
             for (int i = 0; i < inventory.ItemGridAvailable.Length; i++)
             {
@@ -78,14 +78,50 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                     inventory.ItemGridAvailable[i] = 1;
                     break;
                 }
-                else if (inventory.ItemGrids[i].transform.position == results[1].gameObject.transform.position)
+                else if (inventory.ItemGrids[i].transform.position == results[1].gameObject.transform.position || inventory.ItemGrids[i].transform.position == results[2].gameObject.transform.position)
                 {
-                    transform.position = originPos;
+                    if (isQuick == false)
+                    {
+                        for (int j = 0; j < inventory.ItemUIParent.transform.childCount; j++)
+                        {
+
+                            if (Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.y))
+                            {
+                                transform.position = inventory.ItemUIParent.transform.GetChild(j).position;
+                                inventory.ItemUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
+                                currentIndex = i;
+                                break;
+
+                            }
+                            else transform.position = originPos;
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < inventory.ItemUIParent.transform.childCount; j++)
+                        {
+
+                            if (Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.y))
+                            {
+                                transform.position = inventory.ItemUIParent.transform.GetChild(j).position;
+                                inventory.ItemUIParent.transform.GetChild(j).position = inventory.QuickGrids[currentIndex].transform.position;
+                                inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
+                                inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().isQuick = true;
+                                isQuick = false;
+                                inventory.ItemUIParent.transform.GetChild(j).SetParent(inventory.QuickUIParent);
+                                transform.SetParent(inventory.ItemUIParent);
+                                currentIndex = i;
+                                break;
+
+                            }
+                        }
+                    }
                     break;
                 }
             }
         }
-        else if (results[1].gameObject.tag == "QuickGrid")
+        else if (results[1].gameObject.tag == "QuickGrid" || results[2].gameObject.tag == "QuickGrid")
         {
             for (int i = 0; i < inventory.QuickGridAvailable.Length; i++)
             {
@@ -100,7 +136,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                         currentIndex = i;
                         transform.position = results[1].gameObject.transform.position;
                         inventory.QuickGridAvailable[i] = 1;
-                        transform.parent = inventory.QuickUIParent;
+                        transform.SetParent(inventory.QuickUIParent);
                     }
                     else
                     {
@@ -115,9 +151,46 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                     isQuick = true;
                     break;
                 }
-                else if (inventory.QuickGrids[i].transform.position == results[1].gameObject.transform.position)
+                else if (inventory.QuickGrids[i].transform.position == results[1].gameObject.transform.position || inventory.QuickGrids[i].transform.position == results[2].gameObject.transform.position)
                 {
-                    transform.position = originPos;
+                    if (isQuick)
+                    {
+                        for (int j = 0; j < inventory.QuickUIParent.transform.childCount; j++)
+                        {
+
+                            if (Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.y))
+                            {
+                                transform.position = inventory.QuickUIParent.transform.GetChild(j).position;
+                                inventory.QuickUIParent.transform.GetChild(j).position = inventory.QuickGrids[currentIndex].transform.position;
+                                inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
+                                currentIndex = i;
+
+                                break;
+
+                            }
+                            else transform.position = originPos;
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < inventory.QuickUIParent.transform.childCount; j++)
+                        {
+
+                            if (Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.y))
+                            {
+                                transform.position = inventory.QuickUIParent.transform.GetChild(j).position;
+                                inventory.QuickUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
+                                inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().isQuick = false;
+                                isQuick = true;
+                                inventory.QuickUIParent.transform.GetChild(j).SetParent(inventory.ItemUIParent);
+                                transform.SetParent(inventory.QuickUIParent);
+                                currentIndex = i;
+                                break;
+
+                            }
+                        }
+                    }
                     break;
                 }
             }
@@ -129,17 +202,16 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 resultNum = 1;
             else
                 resultNum = 2;
-            if(isQuick)
+            if(isQuick && currentIndex != -1)
                 inventory.QuickGridAvailable[currentIndex] = 0;
-            else
+            else if(currentIndex != -1)
                 inventory.ItemGridAvailable[currentIndex] = 0;
 
-            transform.parent = inventory.TrashUIParent;
+            transform.SetParent(inventory.TrashUIParent);
 
             transform.position = results[resultNum].gameObject.transform.position;
             isQuick = false;
-            currentIndex = -1;
-            if (inventory.TrashGrid.transform.position == results[resultNum].gameObject.transform.position && inventory.TrashGridAvailable == 1)
+            if (inventory.TrashGrid.transform.position == results[resultNum].gameObject.transform.position && inventory.TrashGridAvailable == 1 && currentIndex != -1)
             {
                 Destroy(inventory.TrashUIParent.GetChild(0).gameObject);
             }
@@ -147,6 +219,8 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             {
                 inventory.TrashGridAvailable = 1;
             }
+            currentIndex = -1;
+
         }
         else transform.position = originPos;
     }
