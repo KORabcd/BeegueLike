@@ -9,6 +9,8 @@ TagManager:
   - NextRoomTrigger
   - MainCanvas
   - ItemGrid
+  - QuickGrid
+  - TrashGrid
   layers:
   - Default
   - TransparentFX

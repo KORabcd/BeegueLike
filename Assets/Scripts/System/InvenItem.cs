@@ -17,6 +17,8 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     InventoryManager inventory;
     public int currentIndex;
 
+    bool isQuick = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         originPos = transform.position;
-        transform.parent = inventory.ItemUIParent;
+        transform.parent = isQuick == false ? inventory.ItemUIParent : inventory.QuickUIParent;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -58,7 +60,19 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             {
                 if (inventory.ItemGrids[i].transform.position == results[1].gameObject.transform.position && inventory.ItemGridAvailable[i] == 0)
                 {
-                    inventory.ItemGridAvailable[currentIndex] = 0;
+                    if (isQuick)
+                    {
+                        transform.parent = inventory.ItemUIParent;
+                        if (currentIndex != -1)
+                            inventory.QuickGridAvailable[currentIndex] = 0;
+                        else
+                            inventory.TrashGridAvailable = 0;
+                        isQuick = false;
+                    }
+                    if (currentIndex != -1)
+                        inventory.ItemGridAvailable[currentIndex] = 0;
+                    else
+                        inventory.TrashGridAvailable = 0;
                     currentIndex = i;
                     transform.position = results[1].gameObject.transform.position;
                     inventory.ItemGridAvailable[i] = 1;
@@ -69,6 +83,69 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                     transform.position = originPos;
                     break;
                 }
+            }
+        }
+        else if (results[1].gameObject.tag == "QuickGrid")
+        {
+            for (int i = 0; i < inventory.QuickGridAvailable.Length; i++)
+            {
+                if (inventory.QuickGrids[i].transform.position == results[1].gameObject.transform.position && inventory.QuickGridAvailable[i] == 0)
+                {
+                    if (isQuick == false)
+                    {
+                        if (currentIndex != -1)
+                            inventory.ItemGridAvailable[currentIndex] = 0;
+                        else
+                            inventory.TrashGridAvailable = 0;
+                        currentIndex = i;
+                        transform.position = results[1].gameObject.transform.position;
+                        inventory.QuickGridAvailable[i] = 1;
+                        transform.parent = inventory.QuickUIParent;
+                    }
+                    else
+                    {
+                        if(currentIndex != -1)
+                            inventory.QuickGridAvailable[currentIndex] = 0;
+                        else
+                            inventory.TrashGridAvailable = 0;
+                        currentIndex = i;
+                        transform.position = results[1].gameObject.transform.position;
+                        inventory.QuickGridAvailable[i] = 1;
+                    }
+                    isQuick = true;
+                    break;
+                }
+                else if (inventory.QuickGrids[i].transform.position == results[1].gameObject.transform.position)
+                {
+                    transform.position = originPos;
+                    break;
+                }
+            }
+        }
+        else if(results[1].gameObject.tag == "TrashGrid" || results[2].gameObject.tag == "TrashGrid")
+        {
+            int resultNum = 0;
+            if (results[1].gameObject.tag == "TrashGrid")
+                resultNum = 1;
+            else
+                resultNum = 2;
+            if(isQuick)
+                inventory.QuickGridAvailable[currentIndex] = 0;
+            else
+                inventory.ItemGridAvailable[currentIndex] = 0;
+
+            transform.parent = inventory.TrashUIParent;
+
+            transform.position = results[resultNum].gameObject.transform.position;
+            isQuick = false;
+            currentIndex = -1;
+            if (inventory.TrashGrid.transform.position == results[resultNum].gameObject.transform.position && inventory.TrashGridAvailable == 1)
+            {
+                Destroy(inventory.TrashUIParent.GetChild(0).gameObject);
+            }
+            else
+            {
+                inventory.TrashGridAvailable = 1;
             }
         }
         else transform.position = originPos;
