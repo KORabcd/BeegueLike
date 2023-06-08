@@ -1436,6 +1436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5813379b18893b44c8b41af26e5c5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  height: 5
+  width: 3
+  inactiveRoomCnt: 4
+  specialRoomCnt: 4
   roomPalette:
     emptyRoom: {fileID: 1403736734064631969, guid: 553f78d16ab202f4dbccddf997440f7e, type: 3}
 --- !u!4 &1825626044
