@@ -81,7 +81,7 @@ public class Player : Entity
     public void InputLook(InputAction.CallbackContext context)
     {
         Vector2 value = context.ReadValue<Vector2>();
-        Vector2 mousePos = CurrentCamera.Instance.cam.ScreenToWorldPoint(value);
+        Vector2 mousePos = CameraManager.Instance.cam.ScreenToWorldPoint(value);
         Vector2 mousePosRelative = mousePos - rigid.position;
         
         float direction = Vector2.SignedAngle(Vector2.left, mousePosRelative);

@@ -369,7 +369,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -408,10 +408,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 512539576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bcb2afb47e8eb34e962a1435d8cbfe1, type: 3}
+  m_Script: {fileID: 11500000, guid: 30dab25208b68ea489a0fddea8bd6425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 512539578}
+  target: {fileID: 1673988807}
 --- !u!1 &636786886
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,8 +1000,8 @@ MonoBehaviour:
   entityStatus:
     maxHealth: 10
     currentHealth: 10
-    walkSpeed: 3
-    flySpeed: 3
+    walkSpeed: 4
+    flySpeed: 4
     canFly: 1
     isFlying: 0
     isDead: 0
@@ -1442,7 +1443,7 @@ MonoBehaviour:
   specialRoomCnt: 4
   roomPalette:
     emptyRoom: {fileID: 1403736734064631969, guid: 553f78d16ab202f4dbccddf997440f7e, type: 3}
-    inactiveRoom: {fileID: 0}
+    inactiveRoom: {fileID: 4274914141168661938, guid: 55c374f0556ae6c4b8cc1c732fac7e53, type: 3}
 --- !u!4 &1825626044
 Transform:
   m_ObjectHideFlags: 0

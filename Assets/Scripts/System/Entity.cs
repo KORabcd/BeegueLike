@@ -32,6 +32,23 @@ public class Entity : MonoBehaviour
     public void TakeDamage(int damage)
     {
         entityStatus.currentHealth -= damage;
-        if (entityStatus.currentHealth < 0) entityStatus.currentHealth = 0;
+        if (entityStatus.currentHealth < 0)entityStatus.currentHealth = 0;
+
+        if(entityStatus.currentHealth == 0)
+        {
+            entityStatus.isDead = true;
+            Dead();
+        }
+    }
+
+    public void Dead()
+    {
+        StartCoroutine("DeadIE");
+    }
+
+    public IEnumerator DeadIE()
+    {
+        Destroy(gameObject);
+        yield return null;
     }
 }
