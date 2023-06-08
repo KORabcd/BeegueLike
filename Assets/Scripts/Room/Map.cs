@@ -61,7 +61,7 @@ public class Map : MonoBehaviour
                 {
                     int x = i + wall.nextCoord.x;
                     int y = j + wall.nextCoord.y;
-                    if (x < 0 || y < 0)
+                    if (x < 0 || y < 0 || RoomManager.Instance.rooms[i,j].name=="inactiveRoom")
                     {
                         RoomManager.Instance.rooms[i, j].nextRoomAvailable[wall.wallNumber] = false;
                     }
