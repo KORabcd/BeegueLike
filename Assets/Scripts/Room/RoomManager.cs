@@ -76,7 +76,7 @@ public class RoomManager : MonoBehaviour
         Vector3 nextRoomStart = nextRoomPosition;
         Vector3 nextRoomDest = prevRoom.transform.position;
 
-        Debug.Log(nextRoomDest);
+        Debug.Log("next room dest" + nextRoomDest);
 
         Vector3 prevRoomStart = prevRoom.transform.position;
         Vector3 prevRoomDest = nextRoomDest - nextRoomStart;
