@@ -254,6 +254,67 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &407595792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1673988807}
+    m_Modifications:
+    - target: {fileID: 188142199864092009, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041465, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_Name
+      value: Rhino Beetle Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
 --- !u!1 &512539576
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +326,7 @@ GameObject:
   - component: {fileID: 512539579}
   - component: {fileID: 512539578}
   - component: {fileID: 512539577}
+  - component: {fileID: 512539580}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -307,7 +369,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -337,6 +399,20 @@ Transform:
   m_Father: {fileID: 1978401939}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512539580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512539576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dab25208b68ea489a0fddea8bd6425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 512539578}
+  target: {fileID: 1673988807}
 --- !u!1 &636786886
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +723,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1018208913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7952578248105041461, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+  m_PrefabInstance: {fileID: 407595792}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9a1fbbadf8af34a8c436e01e8f5980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1018208917 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7952578248105041467, guid: 110a4d9736e54234aa25ebb0e68d11ea, type: 3}
+  m_PrefabInstance: {fileID: 407595792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107505231
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,102 +814,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107505231}
   m_CullTransparentMesh: 1
---- !u!1 &1148557429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1148557431}
-  - component: {fileID: 1148557430}
-  - component: {fileID: 1148557432}
-  m_Layer: 0
-  m_Name: Rhino Beetle Sword
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1148557430
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148557429}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ef2d7570424db2e4ab49c5be89b22954, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.27, y: 3.69}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
---- !u!4 &1148557431
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148557429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.008, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1148557432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148557429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3e1ab95d2b7b94f8a736928b816a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 0
 --- !u!1 &1316503557
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +981,7 @@ GameObject:
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1004,8 +1000,8 @@ MonoBehaviour:
   entityStatus:
     maxHealth: 10
     currentHealth: 10
-    walkSpeed: 3
-    flySpeed: 3
+    walkSpeed: 4
+    flySpeed: 4
     canFly: 1
     isFlying: 0
     isDead: 0
@@ -1065,9 +1061,10 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  playerStatus:
+  status:
     invincTime: 0
     invincDelay: 0
+  weapon: {fileID: 1018208913}
 --- !u!58 &1673988805
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1096,7 +1093,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -1115,7 +1112,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1018208917}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1212,11 +1210,35 @@ MonoBehaviour:
     m_ActionId: d55a13b7-6245-4ba9-ac73-61f008a20dcf
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1673988804}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: InputLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6818c8ff-ef37-4649-a765-8f6111676991
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1673988804}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: InputAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8aec79a5-6c30-47c7-8e76-0a452ada8fce
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1384,7 +1406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94f6f87423dcdf43992ef1df7ea9aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1673988804}
+  entity: {fileID: 1673988804}
   slider: {fileID: 1792756778}
 --- !u!1 &1825626042
 GameObject:
@@ -1421,6 +1443,7 @@ MonoBehaviour:
   specialRoomCnt: 4
   roomPalette:
     emptyRoom: {fileID: 1403736734064631969, guid: 553f78d16ab202f4dbccddf997440f7e, type: 3}
+    inactiveRoom: {fileID: 4274914141168661938, guid: 55c374f0556ae6c4b8cc1c732fac7e53, type: 3}
 --- !u!4 &1825626044
 Transform:
   m_ObjectHideFlags: 0

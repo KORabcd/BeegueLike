@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
-    public Player player;
+    public Entity entity;
     public Slider slider;
     public float HPPercent{ get; set; }
 
     // Update is called once per frame
     void Update()
     {
-        slider.maxValue = player.entityStatus.maxHealth;
-        slider.value = player.entityStatus.currentHealth;
+        slider.maxValue = entity.entityStatus.maxHealth;
+        slider.value = entity.entityStatus.currentHealth;
     }
 }

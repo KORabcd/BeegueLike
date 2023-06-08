@@ -15,7 +15,7 @@ public class Player : Entity
     }
 
     [System.Serializable]
-    public struct PlayerStatus
+    public struct Status
     {
         public float invincTime;
         public float invincDelay;
@@ -25,23 +25,21 @@ public class Player : Entity
     private PlayerMovement playerMovement;
 
     [SerializeField]
-    private PlayerStatus playerStatus;
+    private Status status;
     public Collider2D col { get; set; }
     public Rigidbody2D rigid { get; set; }
+
+    public Weapon weapon;
     private void Awake()
     {
         col = GetComponent<Collider2D>();
         rigid = GetComponent<Rigidbody2D>();
     }
-
-    void Update()
-    {
-
-    }
     private void FixedUpdate()
     {
         UpdateMovement();
     }
+
     private void UpdateMovement()
     {
         float acceleration;
@@ -74,9 +72,33 @@ public class Player : Entity
             rigid.velocity *= speedMax / rigid.velocity.magnitude;
         }
     }
-    private void InputMovement(InputAction.CallbackContext context)
+    public void InputMovement(InputAction.CallbackContext context)
     {
-        playerMovement.inputMovement = context.ReadValue<Vector2>();
+        Vector2 value = context.ReadValue<Vector2>();
+        playerMovement.inputMovement = value;
+    }
+
+    public void InputLook(InputAction.CallbackContext context)
+    {
+        Vector2 value = context.ReadValue<Vector2>();
+        Vector2 mousePos = CameraManager.Instance.cam.ScreenToWorldPoint(value);
+        Vector2 mousePosRelative = mousePos - rigid.position;
+        
+        float direction = Vector2.SignedAngle(Vector2.left, mousePosRelative);
+        weapon.status.aimDirection = direction;
+
+
+        //temporary flip
+        //if (mousePosRelative.x > 0) transform.localScale = new Vector3(-1, 1, 1);
+        //else transform.localScale = new Vector3(1, 1, 1);
+    }
+    public void InputAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("attack");
+            weapon.Attack();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

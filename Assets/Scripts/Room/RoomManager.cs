@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour
     {
         public float time;
         public AnimationCurve easing;
+        public bool isMoving;
     }
 
     [SerializeField]
@@ -37,11 +38,15 @@ public class RoomManager : MonoBehaviour
 
     public void MoveRoom(Wall passWall)
     {
-        StartCoroutine("MoveRoomIE", passWall);
+        if (!transitionInfo.isMoving)
+        {
+            StartCoroutine("MoveRoomIE", passWall);
+        }
     }
 
     private IEnumerator MoveRoomIE(Wall passWall)
     {
+        transitionInfo.isMoving = true;
         //´ÙÀ½ ·ë º¹Á¦
         Vector2Int nextRoomCoord = currentRoom.roomCoord + passWall.nextCoord;
         Vector3 nextRoomPosition = Data.RoomPositionByCoord(passWall.nextCoord);
@@ -76,6 +81,8 @@ public class RoomManager : MonoBehaviour
         Vector3 nextRoomStart = nextRoomPosition;
         Vector3 nextRoomDest = prevRoom.transform.position;
 
+        Debug.Log("next room dest" + nextRoomDest);
+
         Vector3 prevRoomStart = prevRoom.transform.position;
         Vector3 prevRoomDest = nextRoomDest - nextRoomStart;
 
@@ -105,5 +112,8 @@ public class RoomManager : MonoBehaviour
 
         //·ë Á¦¾î
         prevRoom.gameObject.SetActive(false);
+
+
+        transitionInfo.isMoving = false;
     }
 }

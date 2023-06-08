@@ -48,7 +48,6 @@ public class WorkerAnt : Entity
     private void FixedUpdate()
     {
         UpdateMovement();
-        //Debug.Log(movement.dest);
     }
 
     public void UpdateMovement()

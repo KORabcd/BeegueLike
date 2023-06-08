@@ -36,7 +36,7 @@ public static class MapGenerator
                         list[3].Add(new Coord() { x = i, y = j });
                 }
         }
-        /*for (int i = 0; i < 4; i++)
+        /*for (int i = 0; i < 4; i++) 디버깅한거
         {
             Debug.Log(i + "번째 방그룹");
             Debug.Log("방 개수 : " + list[i].Count);
@@ -44,7 +44,7 @@ public static class MapGenerator
             {
                 Debug.Log("(" + list[i][j].x + "," + list[i][j].y + ")");
             }
-        }    디버깅 */
+        }    디버깅 끝 */
         for (int i = 0; i < 4; i++)
         {
             for (int j = 0; j < inactiveRoomCnt / 4; j++)
@@ -77,7 +77,6 @@ public static class MapGenerator
                 mapType[x1, y1] = 1;
             }
         }
-        //Debug.Log("MapGenarationEnd");
         return mapType;
     }
     public static bool BFS(int[,] mapType, int height, int width)

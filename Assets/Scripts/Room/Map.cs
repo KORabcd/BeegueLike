@@ -13,7 +13,7 @@ public class Map : MonoBehaviour
     public struct RoomPalette
     {
         public Room emptyRoom;
-        //public Room inactiveRoom;
+        public Room inactiveRoom;
     }
     [SerializeField]
     public RoomPalette roomPalette;
@@ -24,6 +24,7 @@ public class Map : MonoBehaviour
         {
             mapType = MapGenerator.GenerateMapTypes(height, width, inactiveRoomCnt, specialRoomCnt);
         } while (MapGenerator.BFS(mapType, height, width) == false);
+
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < height; j++)
@@ -33,30 +34,34 @@ public class Map : MonoBehaviour
                     //Debug.Log("(" + i + "," + j + ")" + ":" + mapType[i, j]);
                     map[i, j] = roomPalette.emptyRoom;
                 }
+                else
+                {
+                    map[i, j] = roomPalette.inactiveRoom;
+                }
             }
         }
     }
 
     public void MaterializeMap()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < height; j++)
             {
-                RoomManager.Instance.rooms[i, j] = Instantiate(map[i, j], transform);
+                RoomManager.Instance.rooms[i, j] = Instantiate(map[i, j], transform);   
                 RoomManager.Instance.rooms[i, j].gameObject.SetActive(false);
             }
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < height; j++)
             {
                 foreach (Wall wall in RoomManager.Instance.rooms[i, j].walls)
                 {
                     int x = i + wall.nextCoord.x;
                     int y = j + wall.nextCoord.y;
-                    if (x < 0 || y < 0)
+                    if (x < 0 || y < 0 || RoomManager.Instance.rooms[i, j].name == "inactiveRoom")
                     {
                         RoomManager.Instance.rooms[i, j].nextRoomAvailable[wall.wallNumber] = false;
                     }
