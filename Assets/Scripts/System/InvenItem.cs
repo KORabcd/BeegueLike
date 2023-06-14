@@ -62,7 +62,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 {
                     if (isQuick)
                     {
-                        transform.parent = inventory.ItemUIParent;
+                        transform.SetParent(inventory.ItemUIParent);
                         if (currentIndex != -1)
                             inventory.QuickGridAvailable[currentIndex] = 0;
                         else
@@ -88,7 +88,9 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                             if (Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.y))
                             {
                                 transform.position = inventory.ItemUIParent.transform.GetChild(j).position;
-                                inventory.ItemUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                if(currentIndex != -1)
+                                    inventory.ItemUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                else inventory.ItemUIParent.transform.GetChild(j).position = inventory.TrashGrid.transform.position;
                                 inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
                                 currentIndex = i;
                                 break;
@@ -179,7 +181,9 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                             if (Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.y))
                             {
                                 transform.position = inventory.QuickUIParent.transform.GetChild(j).position;
-                                inventory.QuickUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                if(currentIndex != -1)
+                                    inventory.QuickUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                else inventory.QuickUIParent.transform.GetChild(j).position = inventory.TrashGrid.transform.position;
                                 inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
                                 inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().isQuick = false;
                                 isQuick = true;
