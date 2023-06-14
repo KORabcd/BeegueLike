@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class Player : Entity
 {
     [System.Serializable]
@@ -28,12 +29,16 @@ public class Player : Entity
     private Status status;
     public Collider2D col { get; set; }
     public Rigidbody2D rigid { get; set; }
+    public Animator animator { get; set; }
+
+    public SpriteRenderer sprite;
 
     public Weapon weapon;
     private void Awake()
     {
         col = GetComponent<Collider2D>();
         rigid = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -89,8 +94,18 @@ public class Player : Entity
 
 
         //temporary flip
-        //if (mousePosRelative.x > 0) transform.localScale = new Vector3(-1, 1, 1);
-        //else transform.localScale = new Vector3(1, 1, 1);
+        if (mousePosRelative.x > 0)
+        {
+            sprite.flipX = true;
+            weapon.transform.localScale = new Vector3(-1, 1, 1);
+            weapon.status.attackPoint.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            sprite.flipX = false;
+            weapon.transform.localScale = new Vector3(1, 1, 1);
+            weapon.status.attackPoint.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
     public void InputAttack(InputAction.CallbackContext context)
     {
@@ -125,4 +140,13 @@ public class Player : Entity
         rigid.velocity = Vector2.zero;
     }
 
+
+    public new IEnumerator DeadIE()
+    {
+        PlayerInput PI = GetComponent<PlayerInput>();
+        PI.enabled = false;
+        animator.SetBool("Dead", true);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Sun");
+    }
 }
