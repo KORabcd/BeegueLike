@@ -126,6 +126,7 @@ MonoBehaviour:
     canFly: 0
     isFlying: 0
     isDead: 0
+  dropItems: []
   movement:
     dest: {x: 0, y: 0}
     walkAcceleration: 50
