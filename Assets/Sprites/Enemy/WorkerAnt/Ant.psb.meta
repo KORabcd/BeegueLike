@@ -781,28 +781,28 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 505960412
     mosaicPosition: {x: 0, y: 0}
   - name: "\uB354\uB4EC\uC774"
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 232212274
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC67C\uCABD"
     spriteName: 
     isGroup: 1
     parentIndex: 2
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1002397615
     mosaicPosition: {x: 0, y: 0}
   - name: 1
     spriteName: 
     isGroup: 1
     parentIndex: 3
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 372029325
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC67C\uB354\uB4EC\uC774 1"
@@ -816,7 +816,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 3
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 372029328
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC67C\uB354\uB4EC\uC774 2"
@@ -830,14 +830,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 2
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -753714355
     mosaicPosition: {x: 0, y: 0}
   - name: 1
     spriteName: 
     isGroup: 1
     parentIndex: 8
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785337
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC624\uB978\uB354\uB4EC\uC774 1"
@@ -851,7 +851,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 8
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785304
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC624\uB978\uB354\uB4EC\uC774 2"
@@ -865,21 +865,21 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -2056148530
     mosaicPosition: {x: 0, y: 0}
   - name: "\uB4B7\uB2E4\uB9AC"
     spriteName: 
     isGroup: 1
     parentIndex: 13
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 911721123
     mosaicPosition: {x: 0, y: 0}
   - name: 1
     spriteName: 
     isGroup: 1
     parentIndex: 14
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785336
     mosaicPosition: {x: 0, y: 0}
   - name: "\uB4B7\uB2E4\uB9AC 1"
@@ -893,7 +893,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 14
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785305
     mosaicPosition: {x: 0, y: 0}
   - name: "\uB4B7\uB2E4\uB9AC 2"
@@ -907,7 +907,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 14
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 372029327
     mosaicPosition: {x: 0, y: 0}
   - name: "\uB4B7\uB2E4\uB9AC 3"
@@ -921,14 +921,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 13
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1239728175
     mosaicPosition: {x: 0, y: 0}
   - name: 1
     spriteName: 
     isGroup: 1
     parentIndex: 21
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785335
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC911\uAC04\uB2E4\uB9AC 1"
@@ -942,7 +942,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 21
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785306
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC911\uAC04\uB2E4\uB9AC 2"
@@ -956,14 +956,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 13
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 912609692
     mosaicPosition: {x: 0, y: 0}
   - name: 1
     spriteName: 
     isGroup: 1
     parentIndex: 26
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785342
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC55E\uB2E4\uB9AC 1"
@@ -977,7 +977,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 26
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -634785307
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC55E\uB2E4\uB9AC 2"
@@ -991,14 +991,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 1913708493
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC55E"
     spriteName: 
     isGroup: 1
     parentIndex: 31
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 372011764
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 14
@@ -1019,7 +1019,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 32
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -253554475
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC55E\uC8FC\uB465\uC774"
@@ -1040,7 +1040,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 31
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1725450866
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 13
@@ -1061,7 +1061,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 38
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 909244939
     mosaicPosition: {x: 0, y: 0}
   - name: "\uC5BC\uAD74"
@@ -1082,7 +1082,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 31
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 371983098
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 11
@@ -1096,7 +1096,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 44
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1819638416
     mosaicPosition: {x: 0, y: 0}
   - name: "\uB4B7\uC8FC\uB465\uC774"
@@ -1117,7 +1117,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 1920552538
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 7
@@ -1131,7 +1131,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 49
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 1668759826
     mosaicPosition: {x: 0, y: 0}
   - name: "\uAC00\uC2B4"
@@ -1152,7 +1152,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 371985294
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 12
@@ -1173,7 +1173,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 54
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1060123529
     mosaicPosition: {x: 0, y: 0}
   - name: "\uBC30"
