@@ -51,7 +51,7 @@ public class WorkerAntAttacker : MonoBehaviour
     private IEnumerator AttackIE()
     {
         status.isAttacking = true;
-        workerAnt.animator.SetBool("IsAttacking", true);
+        workerAnt.animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.2f);
 
         //check hits
@@ -62,9 +62,5 @@ public class WorkerAntAttacker : MonoBehaviour
             Entity entityHit = hit[i].gameObject.GetComponent<Entity>();
             entityHit.TakeDamage(status.damage);
         }
-
-        yield return new WaitForSeconds(0.4f);
-        status.isAttacking = false;
-        workerAnt.animator.SetBool("IsAttacking", false);
     }
 }

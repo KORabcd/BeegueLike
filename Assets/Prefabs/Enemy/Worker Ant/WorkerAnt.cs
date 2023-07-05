@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkerAnt : Entity
+public class WorkerAnt : Enemy
 {
     [System.Serializable]
     public struct Movement
@@ -76,5 +76,12 @@ public class WorkerAnt : Entity
     public void Attack()
     {
         attacker.Attack();
+    }
+
+    public new IEnumerator DeadIE()
+    {
+        ItemDrop();
+        Destroy(gameObject);
+        yield return null;
     }
 }

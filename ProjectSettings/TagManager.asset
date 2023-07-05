@@ -13,6 +13,7 @@ TagManager:
   - TrashGrid
   - CraftGrid
   - Item
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 960046311
     locked: 0

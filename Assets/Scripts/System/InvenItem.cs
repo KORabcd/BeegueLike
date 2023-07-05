@@ -35,7 +35,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         originPos = transform.position;
-         transform.SetParent(isQuick == false ? inventory.ItemUIParent : inventory.QuickUIParent);
+        transform.SetParent(isQuick == false ? inventory.ItemUIParent : inventory.QuickUIParent);                                          
     }
 
     public void OnEndDrag(PointerEventData eventData)

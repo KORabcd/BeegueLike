@@ -368,7 +368,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d30c510f288293042b6659f2ff3cfd27, type: 3}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2002,7 +2002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3929532383975516398, guid: cff147a841268d44e87a710fa45f7704, type: 3}
       propertyPath: m_Name
-      value: Cell (1)
+      value: Cell
       objectReference: {fileID: 0}
     - target: {fileID: 7253904377193081447, guid: cff147a841268d44e87a710fa45f7704, type: 3}
       propertyPath: m_RootOrder
@@ -2196,7 +2196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3929532383975516398, guid: cff147a841268d44e87a710fa45f7704, type: 3}
       propertyPath: m_Name
-      value: Cell (2)
+      value: Cell
       objectReference: {fileID: 0}
     - target: {fileID: 7253904377193081447, guid: cff147a841268d44e87a710fa45f7704, type: 3}
       propertyPath: m_RootOrder
@@ -2336,7 +2336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3929532383975516398, guid: cff147a841268d44e87a710fa45f7704, type: 3}
       propertyPath: m_Name
-      value: Cell (3)
+      value: Cell
       objectReference: {fileID: 0}
     - target: {fileID: 7253904377193081447, guid: cff147a841268d44e87a710fa45f7704, type: 3}
       propertyPath: m_RootOrder

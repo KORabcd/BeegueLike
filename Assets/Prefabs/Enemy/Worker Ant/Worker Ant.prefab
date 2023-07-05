@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6496298094264279811}
   m_Layer: 11
   m_Name: Worker Ant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,11 @@ MonoBehaviour:
     canFly: 0
     isFlying: 0
     isDead: 0
+  dropItems:
+  - item: {fileID: -3196578913310843134, guid: b0587edf20b20fe4d8db4603d192327b, type: 3}
+    percentage: 50
+  - item: {fileID: 24846197233523478, guid: c996c5d248670994cbcc0574edae144c, type: 3}
+    percentage: 50
   movement:
     dest: {x: 0, y: 0}
     walkAcceleration: 50
@@ -195,7 +200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8863068582196272604}
   - component: {fileID: 3503762886339537013}
-  - component: {fileID: 9055284127274466534}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -268,19 +272,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9055284127274466534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821319726456464212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3e1ab95d2b7b94f8a736928b816a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: -0.62
 --- !u!1 &3510913816019780600
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +282,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8773077320476464517}
   - component: {fileID: 8555263444041242086}
-  - component: {fileID: 5352196291784351737}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -364,19 +354,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5352196291784351737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3510913816019780600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3e1ab95d2b7b94f8a736928b816a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: -1.51
 --- !u!1 &5754358264104460479
 GameObject:
   m_ObjectHideFlags: 0
