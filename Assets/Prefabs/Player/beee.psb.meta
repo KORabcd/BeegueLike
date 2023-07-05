@@ -268,14 +268,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 0
     mosaicPosition: {x: 0, y: 0}
   - name: Folder 1
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 909244939
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 5
@@ -289,7 +289,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1819638416
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 1 Copy 2
@@ -324,7 +324,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -253554475
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 8
@@ -338,7 +338,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 1668759826
     mosaicPosition: {x: 0, y: 0}
   - name: Layer 9
