@@ -77,4 +77,11 @@ public class WorkerAnt : Enemy
     {
         attacker.Attack();
     }
+
+    public new IEnumerator DeadIE()
+    {
+        ItemDrop();
+        Destroy(gameObject);
+        yield return null;
+    }
 }

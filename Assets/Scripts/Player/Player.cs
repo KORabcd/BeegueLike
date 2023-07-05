@@ -96,7 +96,7 @@ public class Player : Entity
     {
         if (context.started)
         {
-            Debug.Log("attack");
+            //Debug.Log("attack");
             weapon.Attack();
         }
     }

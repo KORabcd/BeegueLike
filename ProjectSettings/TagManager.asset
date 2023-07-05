@@ -12,6 +12,7 @@ TagManager:
   - QuickGrid
   - TrashGrid
   - Item
+  - Enemy
   layers:
   - Default
   - TransparentFX

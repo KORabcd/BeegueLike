@@ -126,7 +126,11 @@ MonoBehaviour:
     canFly: 0
     isFlying: 0
     isDead: 0
-  dropItems: []
+  dropItems:
+  - item: {fileID: -3196578913310843134, guid: b0587edf20b20fe4d8db4603d192327b, type: 3}
+    percentage: 50
+  - item: {fileID: 24846197233523478, guid: c996c5d248670994cbcc0574edae144c, type: 3}
+    percentage: 50
   movement:
     dest: {x: 0, y: 0}
     walkAcceleration: 50
