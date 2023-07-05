@@ -11,6 +11,7 @@ TagManager:
   - ItemGrid
   - QuickGrid
   - TrashGrid
+  - CraftGrid
   - Item
   layers:
   - Default

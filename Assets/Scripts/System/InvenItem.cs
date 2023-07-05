@@ -25,7 +25,6 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>();
         GetComponent<Image>().sprite = ItemSprite;
         gr = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<GraphicRaycaster>();
-        transform.position = inventory.ItemGrids[currentIndex].transform.position;
     }
     // Update is called once per frame
     void Update()
@@ -67,12 +66,14 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                             inventory.QuickGridAvailable[currentIndex] = 0;
                         else
                             inventory.TrashGridAvailable = 0;
+                        inventory.WeaponBar[currentIndex] = null;
                         isQuick = false;
                     }
-                    if (currentIndex != -1)
+                    if (currentIndex >= 0)
                         inventory.ItemGridAvailable[currentIndex] = 0;
-                    else
+                    else if(currentIndex == -1)
                         inventory.TrashGridAvailable = 0;
+                        
                     currentIndex = i;
                     transform.position = results[1].gameObject.transform.position;
                     inventory.ItemGridAvailable[i] = 1;
@@ -88,9 +89,9 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                             if (Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.ItemGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.ItemUIParent.transform.GetChild(j).position.y))
                             {
                                 transform.position = inventory.ItemUIParent.transform.GetChild(j).position;
-                                if(currentIndex != -1)
-                                    inventory.ItemUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
-                                else inventory.ItemUIParent.transform.GetChild(j).position = inventory.TrashGrid.transform.position;
+                                if (currentIndex >= 0) inventory.ItemUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                else if (currentIndex == -1) inventory.ItemUIParent.transform.GetChild(j).position = inventory.TrashGrid.transform.position;
+                                else if (currentIndex == -2) inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().CraftSort(true);
                                 inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
                                 currentIndex = i;
                                 break;
@@ -110,6 +111,7 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                                 inventory.ItemUIParent.transform.GetChild(j).position = inventory.QuickGrids[currentIndex].transform.position;
                                 inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
                                 inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>().isQuick = true;
+                                inventory.WeaponBar[currentIndex] = inventory.ItemUIParent.transform.GetChild(j).GetComponent<InvenItem>();
                                 isQuick = false;
                                 inventory.ItemUIParent.transform.GetChild(j).SetParent(inventory.QuickUIParent);
                                 transform.SetParent(inventory.ItemUIParent);
@@ -131,11 +133,12 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 {
                     if (isQuick == false)
                     {
-                        if (currentIndex != -1)
+                        if (currentIndex >= 0)
                             inventory.ItemGridAvailable[currentIndex] = 0;
-                        else
+                        else if(currentIndex == -1)
                             inventory.TrashGridAvailable = 0;
                         currentIndex = i;
+                        inventory.WeaponBar[currentIndex] = this;
                         transform.position = results[1].gameObject.transform.position;
                         inventory.QuickGridAvailable[i] = 1;
                         transform.SetParent(inventory.QuickUIParent);
@@ -146,7 +149,9 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                             inventory.QuickGridAvailable[currentIndex] = 0;
                         else
                             inventory.TrashGridAvailable = 0;
+                        inventory.WeaponBar[currentIndex] = null;
                         currentIndex = i;
+                        inventory.WeaponBar[currentIndex] = this;
                         transform.position = results[1].gameObject.transform.position;
                         inventory.QuickGridAvailable[i] = 1;
                     }
@@ -165,8 +170,9 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                                 transform.position = inventory.QuickUIParent.transform.GetChild(j).position;
                                 inventory.QuickUIParent.transform.GetChild(j).position = inventory.QuickGrids[currentIndex].transform.position;
                                 inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
+                                inventory.WeaponBar[currentIndex] = inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>();
                                 currentIndex = i;
-
+                                inventory.WeaponBar[currentIndex] = this;
                                 break;
 
                             }
@@ -180,16 +186,17 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 
                             if (Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.x) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.x) && Mathf.FloorToInt(inventory.QuickGrids[i].transform.position.y) == Mathf.FloorToInt(inventory.QuickUIParent.transform.GetChild(j).position.y))
                             {
+                                transform.SetParent(inventory.QuickUIParent);
                                 transform.position = inventory.QuickUIParent.transform.GetChild(j).position;
-                                if(currentIndex != -1)
-                                    inventory.QuickUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
-                                else inventory.QuickUIParent.transform.GetChild(j).position = inventory.TrashGrid.transform.position;
+                                if(currentIndex > 0) inventory.QuickUIParent.transform.GetChild(j).position = inventory.ItemGrids[currentIndex].transform.position;
+                                else if(currentIndex == -1) inventory.QuickUIParent.transform.GetChild(j).position = inventory.TrashGrid.transform.position;
+                                else if(currentIndex == -2) inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().CraftSort(true);
                                 inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().currentIndex = currentIndex;
                                 inventory.QuickUIParent.transform.GetChild(j).GetComponent<InvenItem>().isQuick = false;
                                 isQuick = true;
-                                inventory.QuickUIParent.transform.GetChild(j).SetParent(inventory.ItemUIParent);
-                                transform.SetParent(inventory.QuickUIParent);
+                                if(currentIndex != -2)inventory.QuickUIParent.transform.GetChild(j).SetParent(inventory.ItemUIParent);
                                 currentIndex = i;
+                                inventory.WeaponBar[currentIndex] = this;
                                 break;
 
                             }
@@ -206,9 +213,12 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 resultNum = 1;
             else
                 resultNum = 2;
-            if(isQuick && currentIndex != -1)
+            if(isQuick && currentIndex >= 0)
+            {
+                inventory.WeaponBar[currentIndex] = null;
                 inventory.QuickGridAvailable[currentIndex] = 0;
-            else if(currentIndex != -1)
+            }
+            else if(currentIndex >= 0)
                 inventory.ItemGridAvailable[currentIndex] = 0;
 
             transform.SetParent(inventory.TrashUIParent);
@@ -226,6 +236,10 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             currentIndex = -1;
 
         }
+        else if (results[1].gameObject.tag == "CraftGrid" || results[2].gameObject.tag == "CraftGrid")
+        {
+            CraftSort(false);
+        }
         else transform.position = originPos;
     }
 
@@ -233,5 +247,35 @@ public class InvenItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     {
         curPos = Input.mousePosition;
         transform.position = curPos;
+    }
+    public void CraftSort(bool isSwitch)
+    {
+        GameObject craftTable = GameObject.FindGameObjectWithTag("CraftGrid");
+        for (int i = 0; i < 6; i++)
+        {
+            if (craftTable.transform.parent.transform.GetChild(i).transform.childCount == 0)
+            {
+                if (!isSwitch)
+                {
+                    if (isQuick && currentIndex >= 0)
+                    {
+                        inventory.WeaponBar[currentIndex] = null;
+                        inventory.QuickGridAvailable[currentIndex] = 0;
+                    }
+   
+                    else if (currentIndex >= 0)
+                        inventory.ItemGridAvailable[currentIndex] = 0;
+                }
+
+                currentIndex = -2;
+                isQuick = false;
+                transform.SetParent(craftTable.transform.parent.transform.GetChild(i).transform);
+                transform.localPosition = Vector3.zero;
+                return;
+            }
+        }
+        transform.position = originPos;
+
+
     }
 }
