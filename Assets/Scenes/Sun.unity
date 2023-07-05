@@ -4706,8 +4706,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityStatus:
-    maxHealth: 10
-    currentHealth: 10
+    maxHealth: 100
+    currentHealth: 100
     walkSpeed: 4
     flySpeed: 4
     canFly: 1
