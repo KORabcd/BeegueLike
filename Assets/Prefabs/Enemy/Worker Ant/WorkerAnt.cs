@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkerAnt : Entity
+public class WorkerAnt : Enemy
 {
     [System.Serializable]
     public struct Movement
