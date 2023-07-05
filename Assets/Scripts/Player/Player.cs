@@ -91,21 +91,6 @@ public class Player : Entity
         
         float direction = Vector2.SignedAngle(Vector2.left, mousePosRelative);
         weapon.status.aimDirection = direction;
-
-
-        //temporary flip
-        if (mousePosRelative.x > 0)
-        {
-            sprite.flipX = true;
-            weapon.transform.localScale = new Vector3(-1, 1, 1);
-            weapon.status.attackPoint.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            sprite.flipX = false;
-            weapon.transform.localScale = new Vector3(1, 1, 1);
-            weapon.status.attackPoint.transform.localScale = new Vector3(1, 1, 1);
-        }
     }
     public void InputAttack(InputAction.CallbackContext context)
     {
