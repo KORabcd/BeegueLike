@@ -43,6 +43,7 @@ public class Player : Entity
     private void FixedUpdate()
     {
         UpdateMovement();
+        UpdateDirection();
     }
 
     private void UpdateMovement()
@@ -75,6 +76,19 @@ public class Player : Entity
         if(rigid.velocity.magnitude>speedMax)
         {
             rigid.velocity *= speedMax / rigid.velocity.magnitude;
+        }
+    }
+    private void UpdateDirection()
+    {
+        if (playerMovement.inputMovement.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.GetChild(1).transform.GetChild(1).transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (playerMovement.inputMovement.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            transform.GetChild(1).transform.GetChild(1).transform.localScale = new Vector3(1, 1, 1);
         }
     }
     public void InputMovement(InputAction.CallbackContext context)
