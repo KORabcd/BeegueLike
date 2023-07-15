@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -39,9 +40,7 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        InvenOpen();
         WeaponSwitch();
-        Collect();
     }
     public void ItemToInven(GameObject itemObj)
     {
@@ -62,12 +61,10 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-    void InvenOpen()
+    public void InvenOpen(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            OpenIndex = OpenIndex == 0 ? 1 : 0;
-        }
+        OpenIndex = OpenIndex == 0 ? 1 : 0;
+
         if (OpenIndex == 0)
         {
             inventoryObj.SetActive(false);
@@ -105,24 +102,21 @@ public class InventoryManager : MonoBehaviour
             swardSprite.sprite = null;
         }
     }
-    void Collect()
+    public void Collect(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (collectAbleObjs.Count == 0) return;
+        float minDis = 100;
+        int minObj = 0;
+        for(int i = 0; i < collectAbleObjs.Count; i++)
         {
-            if (collectAbleObjs.Count == 0) return;
-            float minDis = 100;
-            int minObj = 0;
-            for(int i = 0; i < collectAbleObjs.Count; i++)
+            if(minDis >= Vector2.Distance(this.gameObject.transform.position, collectAbleObjs[i].transform.position))
             {
-                if(minDis >= Vector2.Distance(this.gameObject.transform.position, collectAbleObjs[i].transform.position))
-                {
-                    minDis = Vector2.Distance(this.gameObject.transform.position, collectAbleObjs[i].transform.position);
-                    minObj = i;
-                }
+                minDis = Vector2.Distance(this.gameObject.transform.position, collectAbleObjs[i].transform.position);
+                minObj = i;
             }
-            ItemToInven(collectAbleObjs[minObj]);
-            Destroy(collectAbleObjs[minObj]);
         }
+        ItemToInven(collectAbleObjs[minObj]);
+        Destroy(collectAbleObjs[minObj]);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
