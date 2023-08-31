@@ -52,7 +52,7 @@ public class WorkerAntAttacker : MonoBehaviour
     {
         status.isAttacking = true;
         workerAnt.animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.85f);
 
         //check hits
         int targetHit = status.attackPoint.OverlapCollider(status.contactFilter, hit);
